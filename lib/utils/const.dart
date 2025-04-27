@@ -1,7 +1,7 @@
 class AppConst {
-  static const String appName = 'Neumorphic Calculator';
+  static const String appName = 'Calculator Pro';
   static const String githubLink =
-      'https://github.com/mllrr96/Neumorphic-Calculator.git';
+      'https://github.com/ssoad/Calculator-Pro.git';
 
   static const String swipeUpGesture = 'assets/lottie/swipe_up.json';
   static const String swipeRightGesture = 'assets/lottie/swipe_right.json';
@@ -11,5 +11,4 @@ class AppConst {
   static const String githubLight = 'assets/lottie/github-light.json';
   static const String deleteLight = 'assets/lottie/delete-light.json';
   static const String deleteDark = 'assets/lottie/delete-dark.json';
-
 }

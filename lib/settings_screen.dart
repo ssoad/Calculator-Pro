@@ -8,7 +8,10 @@ import 'package:neumorphic_calculator/utils/extensions/color_extension.dart';
 import 'package:neumorphic_calculator/utils/extensions/extensions.dart';
 import 'package:neumorphic_calculator/widgets/button_radius_dialog.dart';
 import 'package:system_theme/system_theme.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'about_screen.dart';
 import 'bloc/preference_cubit/preference_state.dart';
+import 'utils/const.dart';
 import 'utils/enum.dart';
 import 'widgets/made_by.dart';
 import 'widgets/neumorphic_button.dart';
@@ -48,10 +51,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 title: const Text('Settings'),
                 backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               ),
-              bottomNavigationBar: const BottomAppBar(
-                padding: EdgeInsets.zero,
-                child: MadeBy(),
-              ),
+              // bottomNavigationBar: const BottomAppBar(
+              //   color: Colors.transparent,
+              //   padding: EdgeInsets.zero,
+              //   child: MadeBy(),
+              //   height: 160,
+              // ),
               body: ListView(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 12, vertical: 18),
@@ -330,6 +335,36 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       ),
                     ),
                   ),
+                  // about section
+                  const SizedBox(height: 18.0),
+                  NeumorphicButton(
+                    borderRadius: settings.buttonRadius,
+                    child: ListTile(
+                      title: const Text('About'),
+                      trailing: const Icon(Icons.arrow_forward_ios),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AboutScreen()),
+                      );
+                    },
+                  ),
+                  const SizedBox(height: 18.0),
+                  NeumorphicButton(
+                    borderRadius: settings.buttonRadius,
+                    child: ListTile(
+                      title: const Text('GitHub'),
+                      trailing: const Icon(Icons.arrow_forward_ios),
+                    ),
+                    onPressed: () async {
+                      try {
+                        await launchUrl(Uri.parse(AppConst.githubLink));
+                      } catch (_) {}
+                    },
+                  ),
+                  const SizedBox(height: 18.0),
                 ],
               )),
         );
