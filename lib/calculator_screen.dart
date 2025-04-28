@@ -9,6 +9,7 @@ import 'package:neumorphic_calculator/widgets/quick_settings.dart';
 import 'bloc/calculator_bloc/calculator_bloc.dart';
 import 'bloc/history_bloc/history_bloc.dart';
 import 'bloc/preference_cubit/preference_state.dart';
+import 'utils/ad_manager.dart';
 import 'utils/extensions/extensions.dart';
 import 'package:neumorphic_calculator/widgets/calculator_app_bar.dart';
 import 'widgets/input_widget.dart';
@@ -55,7 +56,10 @@ class CalculatorScreenState extends State<CalculatorScreen> {
     }
   }
 
-  void _addToResult() {
+  Future<void> _addToResult() async {
+    // Track the calculation in AdManager
+    await AdManager().trackCalculation();
+
     final calculatorState = context.read<CalculatorBloc>().state;
     final historyState = context.read<HistoryBloc>().state;
     final result = ResultModel(
@@ -215,6 +219,7 @@ class CalculatorScreenState extends State<CalculatorScreen> {
                           );
                         },
                       ),
+                      AdManager().getBannerAdWidget(),
                     ],
                   ),
                 ),

@@ -1,7 +1,7 @@
 name: neumorphic_calculator
 description: "A new Flutter project."
 publish_to: 'none' 
-version: 1.0.1+3
+version: 1.0.1+4
 
 environment:
   sdk: '>=3.4.3 <4.0.0'
@@ -30,6 +30,9 @@ dependencies:
   tutorial_coach_mark: ^1.2.11
   lottie: ^3.1.2
   system_theme: ^3.0.0
+  google_mobile_ads: ^6.0.0
+  app_tracking_transparency: ^2.0.6+1
+  # webview_flutter: ^4.11.0
 
 dev_dependencies:
   flutter_test:

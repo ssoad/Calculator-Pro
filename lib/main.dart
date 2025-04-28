@@ -15,11 +15,17 @@ import 'package:system_theme/system_theme.dart';
 import 'bloc/page_cubit/page_cubit.dart';
 import 'bloc/preference_cubit/preference_cubit.dart';
 import 'calculator_screen.dart';
+import 'utils/ad_manager.dart';
 import 'utils/enum.dart';
 import 'widgets/keep_alive_wrapper.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize AdMob
+  await AdManager().initialize();
+
+  
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await SystemTheme.accentColor.load();
   await configureDependencies();

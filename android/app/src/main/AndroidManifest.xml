@@ -2,7 +2,12 @@
     <application
         android:label="Calculator Pro"
         android:name="${applicationName}"
-        android:icon="@mipmap/launcher_icon">
+        android:icon="@mipmap/ic_launcher"
+        android:allowBackup="true"
+        android:usesCleartextTraffic="true">
+         <meta-data
+           android:name="com.google.android.gms.ads.APPLICATION_ID"
+           android:value="ca-app-pub-6977171798368884~7188333648"/>
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
